@@ -10,4 +10,4 @@ Werkzeug==2.1.2
 zipp==3.8.0
 opencv-python==4.6.0.66
 scikit-image==0.19.3
-SpeechRecognition = 3.8.1
+SpeechRecognition == 3.8.1
