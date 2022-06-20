@@ -1,6 +1,5 @@
 # app.py
 import re
-import base64
 from flask import Flask, request, jsonify
 # from face import face_recog
 from audio import audio_recog

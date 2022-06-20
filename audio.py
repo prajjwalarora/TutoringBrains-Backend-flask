@@ -1,4 +1,5 @@
 import speech_recognition as sr
+import base64
 def audio_recog(userAudio):
     
     r = sr.Recognizer()
