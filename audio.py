@@ -4,17 +4,12 @@ def audio_recog(userAudio):
     r = sr.Recognizer()
     response = {}
     response["isValid"] = True
-    with sr.AudioFile("audio.wav") as source:
+    with sr.AudioFile(userAudio) as source:
         audio = r.listen(source)
     try:
         text = r.recognize_google(audio)
         response["text"] = text
     except:
-        print("PLease speak it again")
-        response["isValid"] = True
-    base64_message = userAudio
-    base64_bytes = base64_message.encode('ascii')
-    message_bytes = base64.b64decode(base64_bytes)
-    message = message_bytes.decode('ascii') 
-    response["text"] = message
+        response["isValid"] = False
+        
     return response
