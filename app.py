@@ -1,25 +1,33 @@
 # app.py
+import re
+import speech_recognition as sr 
 from flask import Flask, request, jsonify
+from face import face_recog
 import os
 app = Flask(__name__)
 
 @app.route('/auth/face-verify/', methods=['POST'])
-def respond():
-
-    response = {}
-
-    response["isFaceVerified"] = True
+def face_verify():
+    reqBody = request.get_json();
+    userImg =reqBody["userImg"]
+    verifyImg =reqBody["verifyImg"]
+    result = face_recog(userImg,verifyImg)
     # Return the response in json format
-    return jsonify(response)
+    return jsonify(result)
 
 @app.route('/auth/audio-verify/', methods=['POST'])
-def post_something():
+def audio_verify():
+    
+    reqBody = request.get_json();
+    userAudio =reqBody["userAudio"]
+    result = audio_recog(userAudio)
+    
 
-    response = {}
+    #response = {}
 
-    response["isAudioVerified"] = True
+    #response["isAudioVerified"] = True
     # Return the response in json format
-    return jsonify(response)
+    return jsonify(result)
 
 @app.route('/')
 def index():
