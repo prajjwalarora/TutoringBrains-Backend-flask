@@ -11,3 +11,4 @@ zipp==3.8.0
 opencv-python==4.6.0.66
 scikit-image==0.19.3
 SpeechRecognition == 3.8.1
+flask-cors==3.0.10
